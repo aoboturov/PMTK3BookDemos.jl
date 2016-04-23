@@ -1,5 +1,8 @@
 module PMTK4
 
-# package code goes here
+    export drawBimodalDemo
 
-end # module
+    include("BayesianStatistics/bimodalDemo.jl")
+
+end
+
