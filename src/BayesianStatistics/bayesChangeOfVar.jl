@@ -10,11 +10,11 @@ function drawBayesChangeOfVar(fileName::AbstractString)
     
     ginv(x) = 1./(1+exp(-x+5))
     
-    mu = 6
-    sigma = 1
+    μ = 6
+    Σ = 1
     N = 10^6
     
-    rn = Normal(mu, sigma)
+    rn = Normal(μ, Σ)
     x  = rand(rn, N)
     
     yheight, ypoints = hist(ginv(x), 51)
@@ -26,8 +26,8 @@ function drawBayesChangeOfVar(fileName::AbstractString)
     p_x = layer(x=x, Geom.histogram(bincount=50, density=true), Theme(default_color=parse(Colorant, colors[2])))
     p_y = layer(y=ginv(x), Geom.histogram(bincount=50, density=true, orientation=:horizontal),
                Theme(default_color=parse(Colorant, colors[3])))
-    hl  = layer(x=[0; mu], y=[ginv(mu); ginv(mu)], Geom.line, Theme(line_width=3px))
-    vl  = layer(x=[mu; mu], y=[0, ginv(mu)], Geom.line, Theme(line_width=3px))
+    hl  = layer(x=[0; μ], y=[ginv(μ); ginv(μ)], Geom.line, Theme(line_width=3px))
+    vl  = layer(x=[μ; μ], y=[0, ginv(μ)], Geom.line, Theme(line_width=3px))
     
     pp = plot(hl, vl, g, p_x, p_y, Guide.manual_color_key("Bayes changes of vars", titles, colors))
     

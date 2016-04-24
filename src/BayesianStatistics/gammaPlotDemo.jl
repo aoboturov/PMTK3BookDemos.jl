@@ -15,11 +15,11 @@ function drawGammaDistribution(fileName::AbstractString)
 
     ps = [exp(gammaLogprob(as[i], bs[i], xs)) for i=1:length(as)]
 
-    mus = as./bs
+    μ = as./bs
 
     ls = [layer(x=xs, y=ps[i], Geom.line,
                 Theme(default_color=parse(Colorant, colors[i]), line_width=3px),
-                xintercept=[mus[i]], Geom.vline(color=parse(Colorant, colors[i]), size=3px))
+                xintercept=[μ[i]], Geom.vline(color=parse(Colorant, colors[i]), size=3px))
           for i=1:length(ps)]
 
     pp = plot(Guide.manual_color_key("Gamma parameters", titles, colors), ls...)
