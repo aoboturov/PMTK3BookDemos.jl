@@ -22,7 +22,7 @@ function drawGammaDistribution(fileName::AbstractString)
                 xintercept=[mus[i]], Geom.vline(color=parse(Colorant, colors[i]), size=3px))
           for i=1:length(ps)]
 
-    pp = plot(Guide.manual_color_key("Title", titles, colors), ls...)
+    pp = plot(Guide.manual_color_key("Gamma parameters", titles, colors), ls...)
 
     draw(SVG("$fileName.svg", 10cm, 15cm), pp)
 end
