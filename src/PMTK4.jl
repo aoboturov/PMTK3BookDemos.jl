@@ -8,6 +8,8 @@ module PMTK4
     include("BayesianStatistics/bimodalDemo.jl")
     export drawGammaDistribution
     include("BayesianStatistics/gammaPlotDemo.jl")
+    export mcQuantileDemo
+    include("BayesianStatistics/mcQuantileDemo.jl")
 
 end
 
