@@ -2,6 +2,8 @@ module PMTK4
 
     export drawBayesChangeOfVar
     include("BayesianStatistics/bayesChangeOfVar.jl")
+    export drawBetaHPD
+    include("BayesianStatistics/betaHPD.jl")
     export betaCredibleInt
     include("BayesianStatistics/betaCredibleInt.jl")
     export drawBimodalDemo
