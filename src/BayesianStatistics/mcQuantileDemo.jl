@@ -1,10 +1,11 @@
 using Distributions
 using StatsBase
+using StatsFuns
 
 """
 Example of a computation of beta credible interval with MC sampling.
 """
-function mcQuantileDemo()
+function mcBetaQuantileDemo()
     S = 47
     N = 100
     a = S+1
@@ -21,5 +22,22 @@ function mcQuantileDemo()
     CIhat = [Xl Xu]
     
     CIhat2 = [percentile(X, 100*α/2), percentile(X, 100*(1-α/2))]
+end
+
+
+"""
+Example of a computation of normal credible interval with MC sampling.
+"""
+function mcNormalQuantileDemo()
+    μ = 0
+    Σ = 1
+    S = 1000
+    rn = Normal(μ, Σ)
+    X = rand(rn, S)
+    qs = [0.025 0.5 0.975]
+    
+    qexact = [norminvcdf(μ, Σ, q) for q=qs]
+    
+    qapprox = [percentile(X, 100*q) for q=qs]
 end
 
