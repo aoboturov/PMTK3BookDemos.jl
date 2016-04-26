@@ -1,5 +1,5 @@
-using PMTK4BasicModels
 using Gadfly
+using StatsFuns
 
 """
 Bimodal Spike Demo
@@ -10,7 +10,7 @@ function drawBimodalDemo(fileName::AbstractString)
     w = [.5 .5]
     xs = collect(-2:.01:μ[2]*2)
 
-    p = w[1]*gaussProb(xs, μ[1], Σ[1].^2) + w[2]*gaussProb(xs, μ[2], Σ[2].^2)
+    p = [(w[1]*normpdf(μ[1], Σ[1], x) + w[2]*normpdf(μ[2], Σ[2], x)) for x=xs]
 
     μ = mean(xs .* p)
 

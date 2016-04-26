@@ -32,7 +32,7 @@ function amazonSellerDelta()
     pGreaterExact, err = hcubature(integrand, [0, 0], [1, 1], reltol=1e-4)
 
     θ1, θ2, deltas, dens = contingencyTableUnpairedDiffPostMc(n1, y1, n2, y2)
-    pGreaterMC = mean([convert(Int, θ1[i]>θ2[i]) for i in 1:length(θ1)])
+    pGreaterMC = mean(θ1.>θ2)
 
     [pGreaterExact, pGreaterMC]
 end
