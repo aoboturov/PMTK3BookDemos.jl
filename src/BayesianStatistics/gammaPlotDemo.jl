@@ -1,6 +1,6 @@
-using Gadfly
 using Colors
-using StatsFuns
+using Gadfly
+using Distributions
 
 """
 Plot a Gamma Distribution
@@ -13,7 +13,8 @@ function drawGammaDistribution()
     colors = ["orange", "red", "purple"]
     titles = [string("a=", as[i], ",b=", bs[i]) for i=1:length(as)]
 
-    ps = [exp(gammalogpdf(as[i], bs[i], x)) for x=xs, i=1:length(as)]
+    γs = [Gamma(as[i], bs[i]) for i=1:length(as)]
+    ps = [pdf(γ, x) for x=xs, γ=γs]
 
     μ = as./bs
 

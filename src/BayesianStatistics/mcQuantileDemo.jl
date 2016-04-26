@@ -1,6 +1,5 @@
 using Distributions
 using StatsBase
-using StatsFuns
 
 """
 Example of a computation of beta credible interval with MC sampling.
@@ -19,9 +18,10 @@ function mcBetaQuantileDemo()
     
     Xl = X[round(Int, SS*α/2)]
     Xu = X[round(Int, SS*(1-α/2))]
-    CIhat = [Xl Xu]
+    CIhat = [Xl, Xu]
     
-    CIhat2 = [percentile(X, 100*α/2), percentile(X, 100*(1-α/2))]
+    CIhat2 = quantile(EmpiricalUnivariateDistribution(X), [α/2, 1-α/2])
+    (CIhat, CIhat2)
 end
 
 
@@ -37,7 +37,7 @@ function mcNormalQuantileDemo()
     qs = [0.025 0.5 0.975]
     
     qexact = [norminvcdf(μ, Σ, q) for q=qs]
-    
-    qapprox = [percentile(X, 100*q) for q=qs]
+ 
+    qapprox = quantile(EmpiricalUnivariateDistribution(X), qs)
 end
 

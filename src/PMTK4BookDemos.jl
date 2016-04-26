@@ -1,6 +1,6 @@
 module PMTK4BookDemos
 
-    export unpairedTestHandednessDemo, amazonSellerDelta, amazonSellersTheta
+    export unpairedTestHandednessDemo, amazonSellersDelta, amazonSellersTheta
     include("BayesianStatistics/amazonSellerDemo.jl")
     export drawBayesChangeOfVar
     include("BayesianStatistics/bayesChangeOfVar.jl")

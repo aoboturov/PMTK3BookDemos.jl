@@ -1,5 +1,5 @@
 using Gadfly
-using StatsFuns
+using Distributions
 
 """
 Bimodal Spike Demo
@@ -10,7 +10,9 @@ function drawBimodalDemo()
     w = [.5 .5]
     xs = collect(-2:.01:μ[2]*2)
 
-    p = [(w[1]*normpdf(μ[1], Σ[1], x) + w[2]*normpdf(μ[2], Σ[2], x)) for x=xs]
+    n1 = Normal(μ[1], Σ[1])
+    n2 = Normal(μ[2], Σ[2])
+    p = w[1]*pdf(n1, xs) + w[2]*pdf(n2, xs)
 
     μ = mean(xs .* p)
 
