@@ -5,7 +5,7 @@ using Colors
 """
 Bayes changes of variables
 """
-function drawBayesChangeOfVar(fileName::AbstractString)
+function drawBayesChangeOfVar()
     xseq = collect(0:0.1:10)
     
     ginv(x) = 1./(1+exp(-x+5))
@@ -30,7 +30,5 @@ function drawBayesChangeOfVar(fileName::AbstractString)
     vl  = layer(x=[μ; μ], y=[0, ginv(μ)], Geom.line, Theme(line_width=3px))
     
     pp = plot(hl, vl, g, p_x, p_y, Guide.manual_color_key("Bayes changes of vars", titles, colors))
-    
-    draw(SVG("$fileName.svg", 25cm, 15cm), pp)
 end
 

@@ -1,4 +1,4 @@
-using PMTK4
+using PMTK4BookDemos
 using Base.Test
 
 # write your own tests here

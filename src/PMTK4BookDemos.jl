@@ -1,4 +1,4 @@
-module PMTK4
+module PMTK4BookDemos
 
     export unpairedTestHandednessDemo, amazonSellerDelta, amazonSellersTheta
     include("BayesianStatistics/amazonSellerDemo.jl")

@@ -12,7 +12,7 @@ n2 = 2
 """
 Analysis of binomial differences.
 """
-function unpairedTestHandednessDemo(fileName::AbstractString)
+function unpairedTestHandednessDemo()
     θ1, θ2, deltas, dens = contingencyTableUnpairedDiffPostMc(n1, y1, n2, y2)
     diff = θ1-θ2
     
@@ -20,7 +20,6 @@ function unpairedTestHandednessDemo(fileName::AbstractString)
     
     pp = plot(x=deltas, y=dens, Geom.line, Theme(default_color=colorant"black", line_width=3px),
               xintercept=qq, Geom.vline(color=colorant"blue", size=3px))
-    draw(SVG("$fileName.svg", 20cm, 15cm), pp)
 end
 
 """
@@ -40,7 +39,7 @@ end
 """
 Exact posteriors p(θ|D)
 """
-function amazonSellersTheta(fileName::AbstractString)
+function amazonSellersTheta()
     xs = linspace(0.001, 0.999, 40)
     ps1 = [exp(betalogpdf(1+y1, 1+n1-y1, x)) for x=xs]
     ps2 = [exp(betalogpdf(1+y2, 1+n2-y2, x)) for x=xs]
@@ -49,6 +48,5 @@ function amazonSellersTheta(fileName::AbstractString)
     pdf2_l = layer(x=xs, y=ps2, Geom.point, Theme(default_color=colorant"green", line_width=3px))
     
     pp = plot(pdf1_l, pdf2_l)
-    draw(SVG("$fileName.svg", 20cm, 15cm), pp)
 end
 

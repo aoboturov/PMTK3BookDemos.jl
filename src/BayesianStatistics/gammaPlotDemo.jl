@@ -5,7 +5,7 @@ using StatsFuns
 """
 Plot a Gamma Distribution
 """
-function drawGammaDistribution(fileName::AbstractString)
+function drawGammaDistribution()
     as = [1. 1.5 2.]
     bs = ones(1, length(as))
     xs = linspace(0.1, 7, 40)
@@ -23,7 +23,5 @@ function drawGammaDistribution(fileName::AbstractString)
           for i=1:length(as)]
 
     pp = plot(Guide.manual_color_key("Gamma parameters", titles, colors), ls...)
-
-    draw(SVG("$fileName.svg", 10cm, 15cm), pp)
 end
 
