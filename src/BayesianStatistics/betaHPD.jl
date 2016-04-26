@@ -1,6 +1,5 @@
 using Distributions
 using Gadfly
-using StatsFuns
 using PMTK4Stats
 
 """
@@ -12,14 +11,12 @@ function drawBetaHPD()
     α = 0.05
     β = Beta(a, b)   
 
-    l = betainvcdf(a, b, α/2)
-    u = betainvcdf(a, b, 1-α/2)
-    CI = [l, u]
+    CI = quantile(β, [α/2, 1-α/2])
     
     xs = linspace(0.001, 0.999, 40)
     ps = pdf(β, xs)
     
-    icdf(p::Real) = betainvcdf(a, b, p)
+    icdf(p::Real) = quantile(β, p)
     HPD = hdiFromIcdf(icdf)
     
     ints = hcat(CI, HPD)

@@ -1,4 +1,4 @@
-using StatsFuns
+using Distributions
 
 """
 Example of a computation of beta credible interval
@@ -9,8 +9,7 @@ function betaCredibleInt()
     a = S+1
     b = (N-S)+1
     α = .05
-    l  = betainvcdf(a, b, α/2)
-    u  = betainvcdf(a, b, 1-α/2)
-    CI = [l, u]
+    β = Beta(a, b)
+    CI = quantile(β, [α/2, 1-α/2])
 end
 
