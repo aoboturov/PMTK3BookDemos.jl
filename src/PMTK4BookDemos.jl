@@ -14,6 +14,8 @@ module PMTK4BookDemos
     include("BayesianStatistics/gammaPlotDemo.jl")
     export mcBetaQuantileDemo, mcNormalQuantileDemo
     include("BayesianStatistics/mcQuantileDemo.jl")
+    export robustPriorDemo
+    include("BayesianStatistics/robustPriorDemo.jl")
 
 end
 
