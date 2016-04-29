@@ -8,6 +8,9 @@ julia:
   - release
 notifications:
   email: true
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then sudo apt-get -qq update; fi
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then sudo apt-get install -y libgsl0-dev; fi
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia -e 'Pkg.clone("https://github.com/aoboturov/PMTK4BasicModels.jl.git"); Pkg.clone("https://github.com/aoboturov/PMTK4Stats.jl.git"); Pkg.clone(pwd()); Pkg.build("PMTK4BookDemos"); Pkg.test("PMTK4BookDemos"; coverage=true)'
