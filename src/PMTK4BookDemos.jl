@@ -10,6 +10,8 @@ module PMTK4BookDemos
     include("BayesianStatistics/betaCredibleInt.jl")
     export drawBimodalDemo
     include("BayesianStatistics/bimodalDemo.jl")
+    export coinsModelSelDemo
+    include("BayesianStatistics/coinsModelSelDemo.jl")
     export drawGammaDistribution
     include("BayesianStatistics/gammaPlotDemo.jl")
     export mcBetaQuantileDemo, mcNormalQuantileDemo
