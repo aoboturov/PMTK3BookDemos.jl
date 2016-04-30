@@ -20,6 +20,8 @@ module PMTK4BookDemos
     include("BayesianStatistics/mixBetaDemo.jl")
     export robustPriorDemo
     include("BayesianStatistics/robustPriorDemo.jl")
+    export shrinkageDemoBaseball, shrinkageMSEBaseball
+    include("BayesianStatistics/shrinkageDemoBaseball.jl")
 
 end
 
