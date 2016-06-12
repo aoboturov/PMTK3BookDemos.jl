@@ -15,6 +15,8 @@ module PMTK4BookDemos
     export drawGammaDistribution
     include("BayesianStatistics/gammaPlotDemo.jl")
     export mcBetaQuantileDemo, mcNormalQuantileDemo
+    include("BayesianStatistics/lossFunctionDemo.jl")
+    export lossDemo, hingeLossDemo
     include("BayesianStatistics/mcQuantileDemo.jl")
     export mixBetaDemo, mixBetaBiased
     include("BayesianStatistics/mixBetaDemo.jl")
