@@ -14,12 +14,14 @@ module PMTK4BookDemos
     include("BayesianStatistics/coinsModelSelDemo.jl")
     export drawGammaDistribution
     include("BayesianStatistics/gammaPlotDemo.jl")
-    export mcBetaQuantileDemo, mcNormalQuantileDemo
-    include("BayesianStatistics/lossFunctionDemo.jl")
     export lossDemo, hingeLossDemo
+    include("BayesianStatistics/lossFunctionDemo.jl")
+    export mcBetaQuantileDemo, mcNormalQuantileDemo
     include("BayesianStatistics/mcQuantileDemo.jl")
     export mixBetaDemo, mixBetaBiased
     include("BayesianStatistics/mixBetaDemo.jl")
+    export PRhandDemo, ROChandDemo
+    include("BayesianStatistics/PRhand.jl")
     export robustPriorDemo
     include("BayesianStatistics/robustPriorDemo.jl")
     export shrinkageDemoBaseball, shrinkageMSEBaseball
